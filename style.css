@@ -101,15 +101,43 @@ footer {
   }
 
   h2, ul li, p {
-    white-space: nowrap;      
-    overflow-x: auto;          
+  white-space: normal;
+  overflow-wrap: break-word;
+}
+}
+
+.vpn-flex {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.vpn-text {
+  flex: 1;
+  min-width: 250px;
+}
+
+.vpn-img img {
+  width: 200px;
+  max-width: 100%;
+  height: auto;
+}
+
+/* 手機版：上下排列，並全部置中 */
+@media (max-width: 768px) {
+  .vpn-flex {
+    flex-direction: column;
+    align-items: center; /* ⭐ 加這行讓子項目水平置中 */
+    text-align: center;  /* ⭐ 讓文字置中 */
   }
-}
 
-input.touched:valid {
-  border: 1px solid #ccc !important;
-}
+  .vpn-text {
+    width: 100%;
+  }
 
-input.touched:invalid {
-  border: 2px solid red !important;
+  .vpn-img img {
+    width: 60%;
+  }
 }

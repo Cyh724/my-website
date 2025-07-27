@@ -42,16 +42,15 @@
     </ul>
   </section>
 
-  <section class="image-text" style="display: flex; align-items: center; justify-content: space-between;">
-  <div style="flex: 1; padding-right: 20px;">
+<section class="vpn-flex">
+  <div class="vpn-text">
     <h2>使用 VPN 的重要性</h2>
     <p>VPN 可加密你的網路連線，避免資料在公共 Wi‑Fi 被攔截，是遠端辦公與出國上網的重要工具。</p>
   </div>
-
-  <div style="flex-shrink: 0;">
-    <img src="images/vpn.png" alt="VPN 圖示" width="200" />
+  <div class="vpn-img">
+    <img src="images/vpn.png" alt="VPN 圖示" />
   </div>
-  </section>
+</section>
 
   <section>
     <h2>📩 訂閱安全小提醒</h2>
@@ -77,28 +76,23 @@ const form = document.getElementById('form');
 const email = document.getElementById('email');
 const msg = document.getElementById('msg');
 
-let touched = false;
-
-form.addEventListener('submit', (e) => {
+form.addEventListener('submit', function(e) {
   e.preventDefault();
-  touched = true;
-  email.classList.add('touched'); // 加上 .touched
 
-  if (email.checkValidity()) {
-    msg.textContent = "✅ 訂閱成功！";
-    msg.style.color = "green";
-  } else {
+  if (!email.checkValidity()) {
     msg.textContent = "⚠️ Email 格式錯誤";
     msg.style.color = "red";
+  } else {
+    msg.textContent = "✅ 訂閱成功！";
+    msg.style.color = "green";
+    email.value = ""; // ✅
   }
 });
 
 email.addEventListener('input', () => {
   msg.textContent = "";
-  // ⚠️ 不要再加 class.touched，讓它維持
 });
 </script>
-
 
 </body>
 </html>
