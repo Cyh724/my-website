@@ -79,25 +79,26 @@ const msg = document.getElementById('msg');
 
 let touched = false;
 
-form.onsubmit = (e) => {
+form.addEventListener('submit', (e) => {
   e.preventDefault();
   touched = true;
-  email.classList.add('touched');
+  email.classList.add('touched'); // 加上 .touched
 
   if (email.checkValidity()) {
     msg.textContent = "✅ 訂閱成功！";
     msg.style.color = "green";
-
   } else {
     msg.textContent = "⚠️ Email 格式錯誤";
     msg.style.color = "red";
   }
-};
+});
 
 email.addEventListener('input', () => {
   msg.textContent = "";
+  // ⚠️ 不要再加 class.touched，讓它維持
 });
 </script>
+
 
 </body>
 </html>
