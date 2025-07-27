@@ -89,14 +89,20 @@ footer {
 
 @media screen and (max-width: 768px) {
   body {
-    font-size: 16px;
+    font-size: 14px;
     padding: 10px;
+    overflow-x: hidden;
   }
 
   section {
     margin: 1em;
     padding: 1.5em;
     flex-direction: column; 
+  }
+
+  h2, ul li, p {
+    white-space: nowrap;      
+    overflow-x: auto;          
   }
 
   input[type="email"] {
