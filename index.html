@@ -56,17 +56,48 @@
   <section>
     <h2>📩 訂閱安全小提醒</h2>
     <p>輸入 Email，每週接收網安小知識與工具推薦</p>
-    <form>
-      <input type="emai l" placeholder="請輸入您的 Email" required />
-       pattern="[^@\s]+@[^@\s]+\.[^@\s]+"
-       title="請輸入正確的 Email 格式，例如 example@gmail.com" />
+    <form id="form">
+      <input type="email"  id="email"
+             class="touched"
+             placeholder="請輸入您的 Email" 
+             required
+             pattern="[^@\s]+@[^@\s]+\.[^@\s]+"
+             title="請輸入正確的 Email 格式，例如 example@gmail.com" />
       <button type="submit">訂閱</button>
+      <p id="msg"></p>
     </form>
   </section>
 
   <footer>
     <p>© 2025 網路安全知識普及</p>
   </footer>
+
+<script>
+const form = document.getElementById('form');
+const email = document.getElementById('email');
+const msg = document.getElementById('msg');
+
+let touched = false;
+
+form.onsubmit = (e) => {
+  e.preventDefault();
+  touched = true;
+  email.classList.add('touched');
+
+  if (email.checkValidity()) {
+    msg.textContent = "✅ 訂閱成功！";
+    msg.style.color = "green";
+
+  } else {
+    msg.textContent = "⚠️ Email 格式錯誤";
+    msg.style.color = "red";
+  }
+};
+
+email.addEventListener('input', () => {
+  msg.textContent = "";
+});
+</script>
 
 </body>
 </html>

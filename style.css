@@ -104,13 +104,12 @@ footer {
     white-space: nowrap;      
     overflow-x: auto;          
   }
+}
 
-  input[type="email"] {
-    width: 100%;
-    margin-bottom: 10px;
-  }
+input.touched:valid {
+  border: 1px solid #ccc !important;
+}
 
-  button {
-    width: 100%;
-  }
+input.touched:invalid {
+  border: 2px solid red !important;
 }
