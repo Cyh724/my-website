@@ -58,6 +58,8 @@
     <p>輸入 Email，每週接收網安小知識與工具推薦</p>
     <form>
       <input type="emai l" placeholder="請輸入您的 Email" required />
+       pattern="[^@\s]+@[^@\s]+\.[^@\s]+"
+       title="請輸入正確的 Email 格式，例如 example@gmail.com" />
       <button type="submit">訂閱</button>
     </form>
   </section>
